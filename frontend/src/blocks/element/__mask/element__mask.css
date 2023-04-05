@@ -1,0 +1,12 @@
+.element__mask {
+    height: 282px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(196, 196, 196, 0.1);
+    position: absolute;
+}
+
+.element__mask:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,23 @@
+.profile__avatar-wrapper {
+    height: 120px;
+    width: auto;
+    border-radius: 100%;
+    position: relative;
+}
+
+.profile__avatar-wrapper:hover::after {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40%;
+    background-image: url("../../../images/pencil.svg");
+    background-size: 26px 26px;
+    width: 26px;
+    height: 26px;
+}
+
+.profile__avatar-wrapper:hover {
+    opacity: 0.8;
+}
