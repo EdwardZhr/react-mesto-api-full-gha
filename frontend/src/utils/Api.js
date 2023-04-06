@@ -90,11 +90,7 @@ class Api {
   }
 
   const api = new Api({
-    baseUrl: 'http://localhost:3000',
-    headers: {
-      authorization: '8ade5112-01a1-4e6d-a5ab-052aeef1aded',
-      'Content-Type': 'application/json'
-    }
+    baseUrl: 'https://api.edward.nomoredomains.monster',
   });
 
 export default api;

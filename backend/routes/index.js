@@ -7,6 +7,12 @@ const {
 const { auth } = require('../middlewares/auth');
 const { regexLinkValidation } = require('../utils/constants');
 
+router.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 router.use('/signup', celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
