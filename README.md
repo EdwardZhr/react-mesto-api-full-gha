@@ -8,8 +8,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 51.250.89.17
 
-Frontend https://...
+Frontend https://edward.nomoredomains.monster
 
-Backend https://...
+Backend https://api.edward.nomoredomains.monster
