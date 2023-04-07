@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.89.17
+IP 51.250.89.17
 
 Frontend https://edward.nomoredomains.monster
 
