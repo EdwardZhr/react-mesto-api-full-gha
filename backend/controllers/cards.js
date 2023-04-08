@@ -7,7 +7,7 @@ const ForbiddenError = require('../errors/forbidden-err');
 const { CREATED } = require('../utils/constants');
 
 const getCards = (req, res, next) => {
-  Card.find({})
+  Card.find({}).sort({ createdAt: -1 })
     .populate(['owner', 'likes'])
     .then((cards) => res.send(cards))
     .catch(next);

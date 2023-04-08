@@ -8,6 +8,10 @@ class Api {
       }
     }
 
+    _getToken() {
+        this._token = localStorage.getItem('token');
+    }
+
     _getResponseData(res) {
         if (!res.ok) {
             return Promise.reject(`Ошибка: ${res.status}`); 
@@ -20,18 +24,21 @@ class Api {
     }
 
     getInitialCards() {
+        this._getToken()
         return this._request(`${this._baseUrl}/cards`, {
             headers: this._headers
         });
     }
   
     getProfile() {
+        this._getToken()
         return this._request(`${this._baseUrl}/users/me`, {
             headers: this._headers
         }); 
     }
 
     editProfile({name, about}) {
+        this._getToken()
         return this._request(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
@@ -43,6 +50,7 @@ class Api {
     }
 
     addCard({name, link}) {
+        this._getToken()
         return this._request(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: this._headers,
@@ -54,6 +62,7 @@ class Api {
     }
 
     deleteCard(cardId) {
+        this._getToken()
         return this._request(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers
@@ -61,6 +70,7 @@ class Api {
     }
 
     deleteLike(cardId) {
+        this._getToken()
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'DELETE',
             headers: this._headers
@@ -68,6 +78,7 @@ class Api {
     }
 
     addLike(cardId) {
+        this._getToken()
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'PUT',
             headers: this._headers
@@ -79,6 +90,7 @@ class Api {
     }
 
     changeAvatar(avatar) {
+        this._getToken()
         return this._request(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
