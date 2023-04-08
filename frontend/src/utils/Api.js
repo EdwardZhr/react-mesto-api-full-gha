@@ -1,15 +1,11 @@
 class Api {
     constructor(options) {
       this._baseUrl = options.baseUrl;
-      this._token = localStorage.getItem('token');
-      this._headers = {
-        authorization: `Bearer ${this._token}`,
-        'Content-Type': 'application/json'
-      }
     }
 
     _getToken() {
-        this._token = localStorage.getItem('token');
+        const token = localStorage.getItem('token');
+        return token
     }
 
     _getResponseData(res) {
@@ -24,31 +20,30 @@ class Api {
     }
 
     getInitialCards() {
-        const token = localStorage.getItem('token')
         return this._request(`${this._baseUrl}/cards`, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         });
     }
   
     getProfile() {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me`, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         }); 
     }
 
     editProfile({name, about}) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({
@@ -59,11 +54,11 @@ class Api {
     }
 
     addCard({name, link}) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({
@@ -74,33 +69,33 @@ class Api {
     }
 
     deleteCard(cardId) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         })
     }
 
     deleteLike(cardId) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'DELETE',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         })
     }
 
     addLike(cardId) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'PUT',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         })
@@ -111,11 +106,11 @@ class Api {
     }
 
     changeAvatar(avatar) {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({
