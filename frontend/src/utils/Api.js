@@ -20,9 +20,10 @@ class Api {
     }
 
     getInitialCards() {
+        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards`, {
             headers: {
-                authorization: `Bearer ${this._getToken()}`,
+                authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }
         });
@@ -32,7 +33,7 @@ class Api {
         const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me`, {
             headers: {
-                authorization: `Bearer ${this._getToken()}`,
+                authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json'
               }
         }); 
@@ -43,7 +44,7 @@ class Api {
         return this._request(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: {
-                authorization: `Bearer ${this._getToken()}`,
+                authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({

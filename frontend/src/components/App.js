@@ -64,7 +64,7 @@ function App() {
 
     useEffect(() => {
         handleTokenCheck();
-      }, [loggedIn])
+      }, [loggedIn, navigate])
 
     useEffect(() => {
         if (!loggedIn) {
