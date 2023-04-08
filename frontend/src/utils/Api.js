@@ -20,31 +20,28 @@ class Api {
     }
 
     getInitialCards() {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards`, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         });
     }
   
     getProfile() {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me`, {
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               }
         }); 
     }
 
     editProfile({name, about}) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: {
-                authorization: `Bearer ${token}`,
+                authorization: `Bearer ${this._getToken()}`,
                 'Content-Type': 'application/json'
               },
             body: JSON.stringify({
@@ -55,7 +52,6 @@ class Api {
     }
 
     addCard({name, link}) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: {
@@ -70,7 +66,6 @@ class Api {
     }
 
     deleteCard(cardId) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: {
@@ -81,7 +76,6 @@ class Api {
     }
 
     deleteLike(cardId) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'DELETE',
             headers: {
@@ -92,7 +86,6 @@ class Api {
     }
 
     addLike(cardId) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: 'PUT',
             headers: {
@@ -107,7 +100,6 @@ class Api {
     }
 
     changeAvatar(avatar) {
-        const token = localStorage.getItem('token');
         return this._request(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: {
