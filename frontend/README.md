@@ -1,4 +1,4 @@
-# react-mesto-api-full
+# react-mesto-api-full-gha
 Фронтенд чать приложения проекта `Mesto`.
 
 ## Технологии
