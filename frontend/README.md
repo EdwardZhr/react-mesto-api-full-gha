@@ -1,10 +1,12 @@
-# React-mesto-auth
+# react-mesto-api-full
+Фронтенд чать приложения проекта `Mesto.
 
-•      Проект "Mesto" c аутентификацией пользователся
-•      Технологии: JS, React 
-•      Команды: 
-            "start": "react-scripts start",
-            "build": "react-scripts build",
-        Gh-pages: https://edwardzhr.github.io/react-mesto-auth/
+## Технологии
+JS, React 
+
+
+## Команды 
+"start": "react-scripts start",
+"build": "react-scripts build"
 
 
